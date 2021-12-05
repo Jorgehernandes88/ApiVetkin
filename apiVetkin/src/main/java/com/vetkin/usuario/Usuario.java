@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.vetkin.Veterinario.Veterinario;
 import com.vetkin.cliente.TutorCliente;
 
 @Entity
@@ -28,18 +29,25 @@ public class Usuario {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="tutorCliente_RecID")
 	private TutorCliente tutorCliente = new TutorCliente();
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="tutorVeterinario_RecID")
+	private Veterinario veterinario = new Veterinario();
+
 
 	public Usuario () {
 		
 	}
 
-	public Usuario(Long recID_Usuario, String login, String senha, String perfil, TutorCliente tutorCliente) {
+	public Usuario(Long recID_Usuario, String login, String senha, String perfil, TutorCliente tutorCliente,
+			Veterinario veterinario) {
 		super();
 		RecID_Usuario = recID_Usuario;
 		Login = login;
 		Senha = senha;
 		this.perfil = perfil;
 		this.tutorCliente = tutorCliente;
+		this.veterinario = veterinario;
 	}
 
 	public Long getRecID_Usuario() {
@@ -81,4 +89,14 @@ public class Usuario {
 	public void setTutorCliente(TutorCliente tutorCliente) {
 		this.tutorCliente = tutorCliente;
 	}
+
+	public Veterinario getVeterinario() {
+		return veterinario;
+	}
+
+	public void setVeterinario(Veterinario veterinario) {
+		this.veterinario = veterinario;
+	}
+	
+	
 }
