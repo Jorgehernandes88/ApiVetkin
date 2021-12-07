@@ -1,14 +1,10 @@
 package com.vetkin.cliente;
-import org.apache.logging.log4j.message.Message;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import javax.management.RuntimeErrorException;
 
 @Service
 public class TutorClienteService {
@@ -16,15 +12,15 @@ public class TutorClienteService {
 	@Autowired
 	private TutorClienteRepository rep;
 		
-	public Iterable<TutorCliente> getClientes(){
+	public Iterable<TutorCliente> getTutorClientes(){
 		return rep.findAll();
 	}
 	
-	public Optional<TutorCliente> getClienteById(Long id){
+	public Optional<TutorCliente> getTutorClienteById(Long id){
 		return rep.findById(id);
 	}
 	
-	public List<TutorCliente> getClientesByCpf(String cpf){
+	public List<TutorCliente> getTutorClientesByCpf(String cpf){
 		return rep.findByCpf(cpf);
 	}
 
@@ -36,7 +32,7 @@ public class TutorClienteService {
 		
 		Assert.notNull(id,"Não foi possivel atualizar o registro");
 		//Buscar o cliente no banco de dados
-		Optional<TutorCliente> optional = getClienteById(id);
+		Optional<TutorCliente> optional = getTutorClienteById(id);
 		if(optional.isPresent())
 		{
 			TutorCliente bd = optional.get();
@@ -57,7 +53,7 @@ public class TutorClienteService {
 	public void delete(Long id)
 	{
 		//Buscar o cliente no banco de dados
-		Optional<TutorCliente> cliente = getClienteById(id);
+		Optional<TutorCliente> cliente = getTutorClienteById(id);
 		if(cliente.isPresent())
 		{
 			rep.deleteById(id);
