@@ -25,7 +25,14 @@ public class TutorClienteService {
 	}
 
 	public TutorCliente save(TutorCliente TutorCliente) {
-		return rep.save(TutorCliente);
+				
+        List<TutorCliente> tutores = getTutorClientesByCpf(TutorCliente.getCpf());
+
+        if (tutores.isEmpty()) {
+            return rep.save(TutorCliente);
+        } else {
+            return null;
+        }
 	}
 	
 	public TutorCliente update(TutorCliente TutorCliente, Long id) {
@@ -38,8 +45,12 @@ public class TutorClienteService {
 			TutorCliente bd = optional.get();
 			// Copiar as propriedades
 			bd.setNomeCompleto(TutorCliente.getNomeCompleto());
-			//bd.setSobreNome(cliente.getSobreNome());
-			
+			bd.setEmail(TutorCliente.getEmail());
+			bd.setProfissao(TutorCliente.getProfissao());
+			bd.setTelefone(TutorCliente.getTelefone());
+			bd.setReceberAvisos(TutorCliente.getReceberAvisos());
+			bd.setAvatar(TutorCliente.getAvatar());
+						
 			//Atualizar o registro
 			rep.save(bd);
 			
@@ -50,15 +61,17 @@ public class TutorClienteService {
 		}
 	}
 	
-	public void delete(Long id)
+	public String delete(Long id)
 	{
 		//Buscar o cliente no banco de dados
 		Optional<TutorCliente> cliente = getTutorClienteById(id);
 		if(cliente.isPresent())
 		{
 			rep.deleteById(id);
+			return "OK";
+		}else {
+			return null;
 		}
 		
 	}
-	
 }

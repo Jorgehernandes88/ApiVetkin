@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.vetkin.ResponseMensager.Response;
+import com.vetkin.Utility.CPF;
 import com.vetkin.cliente.TutorCliente;
 import com.vetkin.cliente.TutorClienteService;
 
@@ -71,13 +72,24 @@ public class TutorClienteController {
 		{
 			map.put(Response.ERRO,Response.ERRO_INCLUIR_CAMPOS_OBRIGATORIOS);
 			statusResponse =  new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
-		}else {
 			
+		}if (CPF.valido(CPF.removePontuacao(TutorCliente.getCpf())) != true){
+			map.put(Response.ERRO,Response.ERRO_CPF_INVALIDO);
+			statusResponse =  new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
+		}else
+		{
 			TutorCliente tutorCliente = service.save(TutorCliente);
 			
-			map.put("idTutorCliente",tutorCliente.getRecID_TutorCliente().toString());
-			map.put(Response.STATUS,Response.SUCESSO_INCLUSAO);
-			statusResponse =  new ResponseEntity<>(map,HttpStatus.OK);
+			if(tutorCliente == null)
+			{
+				map.put(Response.ERRO,Response.ERRO_CPF_EXISTENTE);
+				statusResponse =  new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);		
+			}else {
+				map.put("idTutorCliente",tutorCliente.getRecID_TutorCliente().toString());
+				map.put(Response.STATUS,Response.SUCESSO_INCLUSAO);
+				statusResponse =  new ResponseEntity<>(map,HttpStatus.OK);
+			}
+			
 		}
 
 		return statusResponse;
@@ -90,20 +102,49 @@ public class TutorClienteController {
 
 	@CrossOrigin
 	@PutMapping("/{id}")
-	public String put(@PathVariable("id") Long id, @RequestBody TutorCliente TutorCliente) {
+	public ResponseEntity<HashMap<String, String>> put(@PathVariable("id") Long id, @RequestBody TutorCliente TutorCliente) {
 	
-		TutorCliente cli = service.update(TutorCliente, id);
-				
-		return "[{idCliente: " + cli.getRecID_TutorCliente() + "}]";
+		HashMap<String, String> map = new HashMap<>();
+		ResponseEntity<HashMap<String, String>> statusResponse;
+		
+		try {
+			
+		    TutorCliente cli = service.update(TutorCliente, id);
+			
+			map.put("idTutorCliente", cli.getRecID_TutorCliente().toString());
+			map.put(Response.STATUS,Response.SUCESSO_ATUALIZADO);
+			statusResponse =  new ResponseEntity<>(map,HttpStatus.OK);
+			
+		} catch (Exception e) {
+
+			map.put(Response.ERRO,Response.ERRO_ATUALIZAR_REGISTRO);
+			statusResponse =  new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
+		}
+
+		return statusResponse;
 	}
 	
 	@CrossOrigin
 	@DeleteMapping("/{id}")
-	public String delete(@PathVariable("id") Long id) {
-	
-		service.delete(id);
-				
-		return "Tutor deletado";
+	public ResponseEntity<HashMap<String, String>> delete(@PathVariable("id") Long id) {
+		
+		HashMap<String, String> map = new HashMap<>();
+		ResponseEntity<HashMap<String, String>> statusResponse;
+		
+			
+		String tutorCliente = service.delete(id);
+		
+		if(tutorCliente == null)
+		{
+			map.put(Response.ERRO,Response.ERRO_CLIENTE_NAO_ENCONTRADO);
+			statusResponse =  new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
+			
+		}else {
+			map.put(Response.STATUS,Response.SUCESSO_EXCLUSAO);
+			statusResponse =  new ResponseEntity<>(map,HttpStatus.OK);	
+		}
+		
+		return statusResponse;
 	}
 	
 	

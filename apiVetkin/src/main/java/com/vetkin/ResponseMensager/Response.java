@@ -4,6 +4,8 @@ public class Response {
 	//TutorCliente
 	
 	public static final String SUCESSO_INCLUSAO = "Tutor incluído com sucesso.";
+	public static final String SUCESSO_ATUALIZADO = "Tutor Atualizado com sucesso.";
+	public static final String SUCESSO_EXCLUSAO = "Tutor Excluido com sucesso.";
     public static final String ERRO_INCLUIR_CAMPOS_OBRIGATORIOS = "Campos obrigatórios não preenchidos";
     public static final String ERRO_CPF_INVALIDO = "CPF inválido";
     public static final String ERRO_CPF_EXISTENTE = "CPF já existente";
