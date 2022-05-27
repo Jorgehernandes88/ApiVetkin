@@ -32,10 +32,22 @@ public class PacienteService {
 		{
 			Paciente bd = optional.get();
 			// Copiar as propriedades
-			bd.setAvatar(Paciente.getAvatar());
 			bd.setNome(Paciente.getNome());
+			bd.setEspecie(Paciente.getEspecie());
+			bd.setDataNacimento(Paciente.getDataNacimento());
 			bd.setRaca(Paciente.getRaca());
+			bd.setRacaSecundaria(Paciente.getRacaSecundaria());
+			bd.setPorte(Paciente.getPorte());
+			bd.setAlergias(Paciente.getAlergias());
+			bd.setObservacoes(Paciente.getObservacoes());
+			bd.setSexo(Paciente.getSexo());
+			bd.setAgressivo(Paciente.getAgressivo());
 			bd.setStatus(Paciente.getStatus());
+			bd.setAptoAReproducao(Paciente.getAptoAReproducao());
+			bd.setPedigree(Paciente.getPedigree());
+			bd.setMicrochip(Paciente.getMicrochip());
+			bd.setAvatar(Paciente.getAvatar());
+			bd.setTutorCliente(Paciente.getTutorCliente());
 			
 			rep.save(bd);
 			
@@ -46,12 +58,16 @@ public class PacienteService {
 		}
 	}
 	
-	public void delete(Long id)
+	public String delete(Long id)
 	{
 		Optional<Paciente> cliente = getPacientePorId(id);
 		if(cliente.isPresent())
 		{
 			rep.deleteById(id);
+			return "OK";
+		}else
+		{
+			return null;
 		}
 	}
 }

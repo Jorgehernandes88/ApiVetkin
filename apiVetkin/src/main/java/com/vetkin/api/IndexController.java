@@ -10,7 +10,7 @@ public class IndexController {
 	
 	@GetMapping()
 	public  String get() {
-		return "API dos cliente";
+		return "API VetKin";
 	}
 
 }
