@@ -32,12 +32,18 @@ public class CadastroProdutoService {
 		{
 			CadastroProduto bd = optional.get();
 			bd.setNome(CadastroProduto.getNome());
+			bd.setMarca(CadastroProduto.getMarca());
+			bd.setValidade(CadastroProduto.getValidade());
 			bd.setQuantidadeAtual(CadastroProduto.getQuantidadeAtual());
 		    bd.setQuantidadeMinima(CadastroProduto.getQuantidadeMinima());
-		    bd.setStatus(CadastroProduto.getStatus());
 		    bd.setValorCusto(CadastroProduto.getValorCusto());
 		    bd.setValorVenda(CadastroProduto.getValorVenda());
-			
+		    bd.setMargemLucro(CadastroProduto.getMargemLucro());
+		    bd.setComissao(CadastroProduto.getComissao());
+		    bd.setComissaoSobreLucro(CadastroProduto.getComissaoSobreLucro());
+		    bd.setStatus(CadastroProduto.getStatus());
+		    bd.setFornecedor(CadastroProduto.getFornecedor());
+		    
 			rep.save(bd);
 			
 			return bd;
@@ -47,12 +53,15 @@ public class CadastroProdutoService {
 		}
 	}
 	
-	public void delete(Long id)
+	public String delete(Long id)
 	{
 		Optional<CadastroProduto> CadastroExame = getCadastroProdutoPorId(id);
 		if(CadastroExame.isPresent())
 		{
 			rep.deleteById(id);
+			return "OK";
+		}else{
+			return null;
 		}
 	}
 }
