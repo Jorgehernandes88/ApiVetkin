@@ -32,7 +32,6 @@ public class CadastroServicoService {
 		{
 			CadastroServico bd = optional.get();
 			bd.setNome(CadastroServico.getNome());
-			bd.setQuantidade(CadastroServico.getQuantidade());
 			bd.setStatus(CadastroServico.getStatus());
 			bd.setValorCusto(CadastroServico.getValorCusto());
 			bd.setValorVenda(CadastroServico.getValorVenda());
@@ -46,12 +45,15 @@ public class CadastroServicoService {
 		}
 	}
 	
-	public void delete(Long id)
+	public String delete(Long id)
 	{
 		Optional<CadastroServico> CadastroServico = getCadastroServicoPorId(id);
 		if(CadastroServico.isPresent())
 		{
 			rep.deleteById(id);
+			return "OK";
+		}else {
+			return null;
 		}
 	}
 }

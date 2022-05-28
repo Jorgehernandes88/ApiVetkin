@@ -1,6 +1,5 @@
 package com.vetkin.CadastroServico;
 
-import java.text.DecimalFormat;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,9 +17,8 @@ public class CadastroServico {
 	private Long RecID_CadastroServico;
 	
 	private String nome;
-	private DecimalFormat valorCusto;
-	private DecimalFormat valorVenda;
-	private int quantidade;
+	private Float valorCusto;
+	private Float valorVenda;
 	private String status;
 
 	
@@ -28,14 +26,13 @@ public class CadastroServico {
 		
 	}
 
-	public CadastroServico(Long recID_CadastroServico, String nome, DecimalFormat valorCusto, DecimalFormat valorVenda,
-			int quantidade, String status) {
+	public CadastroServico(Long recID_CadastroServico, String nome, Float valorCusto, Float valorVenda,
+			String status) {
 		super();
 		RecID_CadastroServico = recID_CadastroServico;
 		this.nome = nome;
 		this.valorCusto = valorCusto;
 		this.valorVenda = valorVenda;
-		this.quantidade = quantidade;
 		this.status = status;
 	}
 
@@ -55,28 +52,20 @@ public class CadastroServico {
 		this.nome = nome;
 	}
 
-	public DecimalFormat getValorCusto() {
+	public Float getValorCusto() {
 		return valorCusto;
 	}
 
-	public void setValorCusto(DecimalFormat valorCusto) {
+	public void setValorCusto(Float valorCusto) {
 		this.valorCusto = valorCusto;
 	}
 
-	public DecimalFormat getValorVenda() {
+	public Float getValorVenda() {
 		return valorVenda;
 	}
 
-	public void setValorVenda(DecimalFormat valorVenda) {
+	public void setValorVenda(Float valorVenda) {
 		this.valorVenda = valorVenda;
-	}
-
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
 	}
 
 	public String getStatus() {

@@ -32,7 +32,6 @@ public class CadastroExameService {
 		{
 			CadastroExame bd = optional.get();
 			bd.setNome(CadastroExame.getNome());
-			bd.setQuantidade(CadastroExame.getQuantidade());
 			bd.setStatus(CadastroExame.getStatus());
 			bd.setValorCusto(CadastroExame.getValorCusto());
 			bd.setValorVenda(CadastroExame.getValorVenda());

@@ -18,9 +18,8 @@ public class CadastroExame {
 	private Long RecID_CadastroExame;
 	
 	private String nome;
-	private DecimalFormat valorCusto;
-	private DecimalFormat valorVenda;
-	private int quantidade;
+	private Float valorCusto;
+	private Float valorVenda;
 	private String status;
 
 	
@@ -28,14 +27,13 @@ public class CadastroExame {
 		
 	}
 
-	public CadastroExame(Long recID_CadastroExame, String nome, DecimalFormat valorCusto, DecimalFormat valorVenda,
-			int quantidade, String status) {
+	public CadastroExame(Long recID_CadastroExame, String nome, Float valorCusto, Float valorVenda,
+			String status) {
 		super();
 		RecID_CadastroExame = recID_CadastroExame;
 		this.nome = nome;
 		this.valorCusto = valorCusto;
 		this.valorVenda = valorVenda;
-		this.quantidade = quantidade;
 		this.status = status;
 	}
 
@@ -55,28 +53,20 @@ public class CadastroExame {
 		this.nome = nome;
 	}
 
-	public DecimalFormat getValorCusto() {
+	public Float getValorCusto() {
 		return valorCusto;
 	}
 
-	public void setValorCusto(DecimalFormat valorCusto) {
+	public void setValorCusto(Float valorCusto) {
 		this.valorCusto = valorCusto;
 	}
 
-	public DecimalFormat getValorVenda() {
+	public Float getValorVenda() {
 		return valorVenda;
 	}
 
-	public void setValorVenda(DecimalFormat valorVenda) {
+	public void setValorVenda(Float valorVenda) {
 		this.valorVenda = valorVenda;
-	}
-
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
 	}
 
 	public String getStatus() {
