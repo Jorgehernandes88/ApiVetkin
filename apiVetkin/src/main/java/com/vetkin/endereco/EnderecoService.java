@@ -33,9 +33,11 @@ public class EnderecoService {
 			Endereco bd = optional.get();
 			// Copiar as propriedades
 			bd.setCep(Endereco.getCep());
-			bd.setEndereco(Endereco.getEndereco());
-			bd.setNumero(Endereco.getNumero());
+			bd.setLogradouro(Endereco.getLogradouro());
 			bd.setComplemento(Endereco.getComplemento());
+			bd.setBairro(Endereco.getBairro());
+			bd.setLocalidade(Endereco.getLocalidade());
+			bd.setUf(Endereco.getUf());
 			
 			rep.save(bd);
 			

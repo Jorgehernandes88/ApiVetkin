@@ -37,9 +37,6 @@ public class Paciente {
 	private String microchip;
 	private String avatar;
 	
-	@OneToOne(cascade = CascadeType.ALL, optional = true )
-	@JoinColumn(name="tutorCliente_RecID")
-	private TutorCliente tutorCliente = new TutorCliente();
 	
 	public Paciente() {
 		
@@ -47,8 +44,7 @@ public class Paciente {
 
 	public Paciente(Long recID_Paciente, String nome, String especie, String dataNacimento, String raca,
 			String racaSecundaria, String porte, String alergias, String observacoes, String sexo, String agressivo,
-			String status, String aptoAReproducao, String pedigree, String microchip, String avatar,
-			TutorCliente tutorCliente) {
+			String status, String aptoAReproducao, String pedigree, String microchip, String avatar) {
 		super();
 		RecID_Paciente = recID_Paciente;
 		this.nome = nome;
@@ -66,7 +62,6 @@ public class Paciente {
 		this.pedigree = pedigree;
 		this.microchip = microchip;
 		this.avatar = avatar;
-		this.tutorCliente = tutorCliente;
 	}
 
 	public Long getRecID_Paciente() {
@@ -195,13 +190,5 @@ public class Paciente {
 
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
-	}
-
-	public TutorCliente getTutorCliente() {
-		return tutorCliente;
-	}
-
-	public void setTutorCliente(TutorCliente tutorCliente) {
-		this.tutorCliente = tutorCliente;
 	}
 }

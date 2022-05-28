@@ -22,27 +22,26 @@ public class Endereco {
 	private Long RecID_Endereco;
 	
 	private String cep;
-	private String endereco;
-	private String numero;
+	private String logradouro;
 	private String complemento;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="tutorCliente_RecID")
-	private TutorCliente tutorCliente = new TutorCliente();
+	private String bairro;
+	private String localidade;
+	private String uf;
 	
 	public Endereco() {
 		
 	}
 
-	public Endereco(Long recID_Endereco, String cep, String endereco, String numero, String complemento,
-			TutorCliente tutorCliente) {
+	public Endereco(Long recID_Endereco, String cep, String logradouro, String complemento, String bairro,
+			String localidade, String uf) {
 		super();
 		RecID_Endereco = recID_Endereco;
 		this.cep = cep;
-		this.endereco = endereco;
-		this.numero = numero;
+		this.logradouro = logradouro;
 		this.complemento = complemento;
-		this.tutorCliente = tutorCliente;
+		this.bairro = bairro;
+		this.localidade = localidade;
+		this.uf = uf;
 	}
 
 	public Long getRecID_Endereco() {
@@ -61,22 +60,6 @@ public class Endereco {
 		this.cep = cep;
 	}
 
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
 	public String getComplemento() {
 		return complemento;
 	}
@@ -85,12 +68,44 @@ public class Endereco {
 		this.complemento = complemento;
 	}
 
-	public TutorCliente getTutorCliente() {
-		return tutorCliente;
+
+	public String getLogradouro() {
+		return logradouro;
 	}
 
-	public void setTutorCliente(TutorCliente tutorCliente) {
-		this.tutorCliente = tutorCliente;
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+
+	public String getBairro() {
+		return bairro;
+	}
+
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+
+	public String getLocalidade() {
+		return localidade;
+	}
+
+
+	public void setLocalidade(String localidade) {
+		this.localidade = localidade;
+	}
+
+
+	public String getUf() {
+		return uf;
+	}
+
+
+	public void setUf(String uf) {
+		this.uf = uf;
 	}
 
 }

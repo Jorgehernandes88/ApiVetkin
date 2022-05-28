@@ -11,7 +11,7 @@ public class TutorClienteService {
 	
 	@Autowired
 	private TutorClienteRepository rep;
-		
+	
 	public Iterable<TutorCliente> getTutorClientes(){
 		return rep.findAll();
 	}
@@ -50,10 +50,11 @@ public class TutorClienteService {
 			bd.setTelefone(TutorCliente.getTelefone());
 			bd.setReceberAvisos(TutorCliente.getReceberAvisos());
 			bd.setAvatar(TutorCliente.getAvatar());
+			bd.setEndereco(TutorCliente.getEndereco());
 						
 			//Atualizar o registro
 			rep.save(bd);
-			
+
 			return bd;
 		}
 		else {

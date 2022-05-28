@@ -1,11 +1,22 @@
 package com.vetkin.cliente;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.vetkin.endereco.Endereco;
+import com.vetkin.paciente.Paciente;
 
 @Entity
 @Table(name = "TutorCliente")
@@ -25,13 +36,21 @@ public class TutorCliente {
 	private String receberAvisos;
 	private String avatar;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="RecID_Endereco",referencedColumnName = "RecID_Endereco")
+	private Endereco endereco;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="tutorCliente_RecID")
+	private List<Paciente> paciente = new ArrayList<>();
+	
 	public TutorCliente()
 	{
 		
 	}
 
 	public TutorCliente(Long recID_TutorCliente, String nomeCompleto, String email, String cpf, String profissao,
-			String telefone, String receberAvisos, String avatar) {
+			String telefone, String receberAvisos, String avatar, Endereco endereco, List<Paciente> paciente) {
 		super();
 		RecID_TutorCliente = recID_TutorCliente;
 		this.nomeCompleto = nomeCompleto;
@@ -41,7 +60,11 @@ public class TutorCliente {
 		this.telefone = telefone;
 		this.receberAvisos = receberAvisos;
 		this.avatar = avatar;
+		this.endereco = endereco;
+		this.paciente = paciente;
 	}
+
+
 
 	public Long getRecID_TutorCliente() {
 		return RecID_TutorCliente;
@@ -106,4 +129,21 @@ public class TutorCliente {
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
+	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public List<Paciente> getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(List<Paciente> paciente) {
+		this.paciente = paciente;
+	}
+	
 }
