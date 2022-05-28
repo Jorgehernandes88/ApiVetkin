@@ -46,12 +46,16 @@ public class CadastroExameService {
 		}
 	}
 	
-	public void delete(Long id)
+	public String delete(Long id)
 	{
 		Optional<CadastroExame> CadastroExame = getCadastroExamePorId(id);
 		if(CadastroExame.isPresent())
 		{
 			rep.deleteById(id);
+			return "OK";
+		}else
+		{
+			return null;
 		}
 	}
 }

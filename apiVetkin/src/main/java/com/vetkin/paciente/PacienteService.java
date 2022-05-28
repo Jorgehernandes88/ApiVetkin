@@ -47,7 +47,6 @@ public class PacienteService {
 			bd.setPedigree(Paciente.getPedigree());
 			bd.setMicrochip(Paciente.getMicrochip());
 			bd.setAvatar(Paciente.getAvatar());
-			bd.setTutorCliente(Paciente.getTutorCliente());
 			
 			rep.save(bd);
 			
