@@ -26,27 +26,24 @@ public class Fornecedor {
 	
 	private String empresa;
 	private String nome;
+	private String cnpj;
+	private String inscricaoEstadual;
 	private String contato;
 	private String score;
 	
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="VacinaFornecedor_RecID")
-	private CadastroVacina cadastroVacina = new CadastroVacina();
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="ProdutoFornecedor_RecID")
-	private CadastroProduto cadastroProduto = new CadastroProduto();
 	
 	public Fornecedor () {
 		
 	}
 
-	public Fornecedor(Long recID_Fornecedor, String empresa, String nome, String contato, String score) {
+	public Fornecedor(Long recID_Fornecedor, String empresa, String nome, String cnpj, String inscricaoEstadual,
+			String contato, String score) {
 		super();
 		RecID_Fornecedor = recID_Fornecedor;
 		this.empresa = empresa;
 		this.nome = nome;
+		this.cnpj = cnpj;
+		this.inscricaoEstadual = inscricaoEstadual;
 		this.contato = contato;
 		this.score = score;
 	}
@@ -90,4 +87,25 @@ public class Fornecedor {
 	public void setScore(String score) {
 		this.score = score;
 	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+
+
+	public String getInscricaoEstadual() {
+		return inscricaoEstadual;
+	}
+
+	public void setInscricaoEstadual(String inscricaoEstadual) {
+		this.inscricaoEstadual = inscricaoEstadual;
+	}
+	
 }

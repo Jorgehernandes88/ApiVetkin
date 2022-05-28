@@ -34,6 +34,8 @@ public class FornecedorService {
 			bd.setNome(Fornecedor.getNome());
 			bd.setEmpresa(Fornecedor.getEmpresa());
 			bd.setContato(Fornecedor.getContato());
+			bd.setCnpj(Fornecedor.getCnpj());
+			bd.setInscricaoEstadual(Fornecedor.getInscricaoEstadual());
 			bd.setScore(Fornecedor.getScore());
 			
 			rep.save(bd);
@@ -45,12 +47,15 @@ public class FornecedorService {
 		}
 	}
 	
-	public void delete(Long id)
+	public String delete(Long id)
 	{
 		Optional<Fornecedor> Fornecedor = getFornecedorPorId(id);
 		if(Fornecedor.isPresent())
 		{
 			rep.deleteById(id);
+			return "OK";
+		}else {
+			return null;
 		}
 	}
 }

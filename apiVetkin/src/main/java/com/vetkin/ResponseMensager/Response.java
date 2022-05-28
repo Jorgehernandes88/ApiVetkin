@@ -8,18 +8,21 @@ public class Response {
 	public static final String SUCESSO_INCLUSAO_VETERINARIO = "Veterinário incluído com sucesso.";
 	public static final String SUCESSO_INCLUSAO_EXAME= "Exame incluído com sucesso.";
 	public static final String SUCESSO_INCLUSAO_SERVICO= "Serviço incluído com sucesso.";
+	public static final String SUCESSO_INCLUSAO_FORNECEDOR= "Fornecedor incluído com sucesso.";
 	
 	public static final String SUCESSO_ATUALIZADO = "Tutor Atualizado com sucesso.";
 	public static final String SUCESSO_ATUALIZADO_PACIENTE = "Paciente Atualizado com sucesso.";
 	public static final String SUCESSO_ATUALIZADO_VETERINARIO = "Veterinário Atualizado com sucesso.";
 	public static final String SUCESSO_ATUALIZADO_EXAME = "Exame Atualizado com sucesso.";
 	public static final String SUCESSO_ATUALIZADO_SERVICO = "Serviço Atualizado com sucesso.";
+	public static final String SUCESSO_ATUALIZADO_FORNECEDOR = "Fornecedor Atualizado com sucesso.";
 	
 	public static final String SUCESSO_EXCLUSAO = "Tutor Excluido com sucesso.";
 	public static final String SUCESSO_EXCLUSAO_PACIENTE = "Paciente Excluido com sucesso.";
 	public static final String SUCESSO_EXCLUSAO_VETERINARIO = "Veterinário Excluido com sucesso.";
 	public static final String SUCESSO_EXCLUSAO_EXAME = "Exame Excluido com sucesso.";
 	public static final String SUCESSO_EXCLUSAO_SERVICO = "Serviço Excluido com sucesso.";
+	public static final String SUCESSO_EXCLUSAO_FORNECEDOR= "Fornecedor Excluido com sucesso.";
 	  
     public static final String ERRO_CPF_INVALIDO = "CPF inválido";
     public static final String ERRO_CPF_EXISTENTE = "CPF já existente";
@@ -29,6 +32,7 @@ public class Response {
     public static final String ERRO_VETERINARIO_NAO_ENCONTRADO = "Veterinário não encontrado";
     public static final String ERRO_EXAME_NAO_ENCONTRADO = "Exame não encontrado";
     public static final String ERRO_SERVICO_NAO_ENCONTRADO = "Serviço não encontrado";
+    public static final String ERRO_FORNECEDOR_NAO_ENCONTRADO = "Fornecedor não encontrado";
     
     public static final String ERRO_INCLUIR_CAMPOS_OBRIGATORIOS = "Campos obrigatórios não preenchidos";
     
