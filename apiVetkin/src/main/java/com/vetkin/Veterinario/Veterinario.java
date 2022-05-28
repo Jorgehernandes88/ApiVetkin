@@ -1,16 +1,12 @@
 package com.vetkin.Veterinario;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.vetkin.cliente.TutorCliente;
 
 @Entity
 @Table(name = "Veterinario")
@@ -22,18 +18,29 @@ public class Veterinario {
 	private Long RecID_Veterinario;
 	
 	private String nomeCompleto;
+	private String especialidade;
 	private String telefone;
+	private String observacao;
+	private String status;
+	private String avatar;
 	
 	public Veterinario () {
 		
 	}
 
-	public Veterinario(Long recID_Veterinario, String nomeCompleto, String telefone) {
+	public Veterinario(Long recID_Veterinario, String nomeCompleto, String especialidade, String telefone,
+			String observacao, String status, String avatar) {
 		super();
 		RecID_Veterinario = recID_Veterinario;
 		this.nomeCompleto = nomeCompleto;
+		this.especialidade = especialidade;
 		this.telefone = telefone;
+		this.observacao = observacao;
+		this.status = status;
+		this.avatar = avatar;
 	}
+
+
 
 	public Long getRecID_Veterinario() {
 		return RecID_Veterinario;
@@ -57,6 +64,38 @@ public class Veterinario {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public String getEspecialidade() {
+		return especialidade;
+	}
+
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
+	}
+
+	public String getObservacao() {
+		return observacao;
+	}
+
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 
 }

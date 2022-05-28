@@ -3,6 +3,8 @@ package com.vetkin.Veterinario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+
+import java.rmi.activation.Activatable;
 import java.util.Optional;
 
 @Service
@@ -33,6 +35,10 @@ public class VeterinarioService {
 			Veterinario bd = optional.get();
 			bd.setNomeCompleto(Veterinario.getNomeCompleto());
 			bd.setTelefone(Veterinario.getTelefone());
+			bd.setEspecialidade(Veterinario.getEspecialidade());
+			bd.setObservacao(Veterinario.getObservacao());
+			bd.setStatus(Veterinario.getStatus());
+			bd.setAvatar(Veterinario.getAvatar());
 			
 			rep.save(bd);
 			
@@ -43,12 +49,15 @@ public class VeterinarioService {
 		}
 	}
 	
-	public void delete(Long id)
+	public String delete(Long id)
 	{
 		Optional<Veterinario> Veterinario = getVeterinarioPorId(id);
 		if(Veterinario.isPresent())
 		{
 			rep.deleteById(id);
+			return "OK";
+		}else {
+			return null;
 		}
 	}
 }
