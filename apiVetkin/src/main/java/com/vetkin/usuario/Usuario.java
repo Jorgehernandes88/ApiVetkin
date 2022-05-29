@@ -22,9 +22,10 @@ public class Usuario {
 	@Column(name = "RecID_Usuario")
 	private Long RecID_Usuario;
 	
-	private String Login;
+	private String login;
 	private String Senha;
-	private String perfil;
+	private String Status;
+	private String Perfil;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="tutorCliente_RecID")
@@ -39,13 +40,14 @@ public class Usuario {
 		
 	}
 
-	public Usuario(Long recID_Usuario, String login, String senha, String perfil, TutorCliente tutorCliente,
+	public Usuario(Long recID_Usuario, String login, String senha, String perfil,String status, TutorCliente tutorCliente,
 			Veterinario veterinario) {
 		super();
 		RecID_Usuario = recID_Usuario;
-		Login = login;
+		login = login;
 		Senha = senha;
-		this.perfil = perfil;
+		Status = status;
+		this.Perfil = perfil;
 		this.tutorCliente = tutorCliente;
 		this.veterinario = veterinario;
 	}
@@ -59,11 +61,11 @@ public class Usuario {
 	}
 
 	public String getLogin() {
-		return Login;
+		return login;
 	}
 
 	public void setLogin(String login) {
-		Login = login;
+		this.login = login;
 	}
 
 	public String getSenha() {
@@ -71,15 +73,15 @@ public class Usuario {
 	}
 
 	public void setSenha(String senha) {
-		Senha = senha;
+		this.Senha = senha;
 	}
 
 	public String getPerfil() {
-		return perfil;
+		return Perfil;
 	}
 
 	public void setPerfil(String perfil) {
-		this.perfil = perfil;
+		this.Perfil = perfil;
 	}
 
 	public TutorCliente getTutorCliente() {
@@ -97,6 +99,13 @@ public class Usuario {
 	public void setVeterinario(Veterinario veterinario) {
 		this.veterinario = veterinario;
 	}
-	
+
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		this.Status = status;
+	}
 	
 }

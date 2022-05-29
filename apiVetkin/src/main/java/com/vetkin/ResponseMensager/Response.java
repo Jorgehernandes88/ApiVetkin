@@ -10,6 +10,7 @@ public class Response {
 	public static final String SUCESSO_INCLUSAO_SERVICO= "Serviço incluído com sucesso.";
 	public static final String SUCESSO_INCLUSAO_FORNECEDOR= "Fornecedor incluído com sucesso.";
 	public static final String SUCESSO_INCLUSAO_PRODUTO= "Produto incluído com sucesso.";
+	public static final String SUCESSO_INCLUSAO_USUARIO= "Usuário incluído com sucesso.";
 	
 	public static final String SUCESSO_ATUALIZADO = "Tutor Atualizado com sucesso.";
 	public static final String SUCESSO_ATUALIZADO_PACIENTE = "Paciente Atualizado com sucesso.";
@@ -18,6 +19,7 @@ public class Response {
 	public static final String SUCESSO_ATUALIZADO_SERVICO = "Serviço Atualizado com sucesso.";
 	public static final String SUCESSO_ATUALIZADO_FORNECEDOR = "Fornecedor Atualizado com sucesso.";
 	public static final String SUCESSO_ATUALIZADO_PRODUTO = "Produto Atualizado com sucesso.";
+	public static final String SUCESSO_ATUALIZADO_USUARIO = "Usuário Atualizado com sucesso.";
 	
 	public static final String SUCESSO_EXCLUSAO = "Tutor Excluido com sucesso.";
 	public static final String SUCESSO_EXCLUSAO_PACIENTE = "Paciente Excluido com sucesso.";
@@ -26,7 +28,11 @@ public class Response {
 	public static final String SUCESSO_EXCLUSAO_SERVICO = "Serviço Excluido com sucesso.";
 	public static final String SUCESSO_EXCLUSAO_FORNECEDOR= "Fornecedor Excluido com sucesso.";
 	public static final String SUCESSO_EXCLUSAO_PRODUTO= "Produto Excluido com sucesso.";
-	  
+	public static final String SUCESSO_EXCLUSAO_USUARIO= "Usuário Excluido com sucesso.";
+	
+	public static final String SUCESSO_AUTORIZADO= "Usuário autorizado.";	
+	public static final String ERRO_AUTORIZADO= "Usuário não autorizado.";	
+	
     public static final String ERRO_CPF_INVALIDO = "CPF inválido";
     public static final String ERRO_CPF_EXISTENTE = "CPF já existente";
        
@@ -37,11 +43,10 @@ public class Response {
     public static final String ERRO_SERVICO_NAO_ENCONTRADO = "Serviço não encontrado";
     public static final String ERRO_FORNECEDOR_NAO_ENCONTRADO = "Fornecedor não encontrado";
     public static final String ERRO_PRODUTO_NAO_ENCONTRADO = "Produto não encontrado";
+    public static final String ERRO_USUARIO_NAO_ENCONTRADO = "Usuário não encontrado";
     
-    public static final String ERRO_INCLUIR_CAMPOS_OBRIGATORIOS = "Campos obrigatórios não preenchidos";
-    
+    public static final String ERRO_INCLUIR_CAMPOS_OBRIGATORIOS = "Campos obrigatórios não preenchidos";  
     public static final String ERRO_ATUALIZAR_REGISTRO = "Não foi possivel atualizar o registro";
-    
     public static final String ERRO_MENSAGEM_RESTRICAO = "could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement";
     public static final String ERRO = "Erro";
     public static final String STATUS = "Status";
