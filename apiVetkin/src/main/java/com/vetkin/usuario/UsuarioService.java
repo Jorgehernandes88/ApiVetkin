@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import com.vetkin.Utility.PassMD5;
 import com.vetkin.cliente.TutorCliente;
 
 import java.util.List;
@@ -56,7 +57,10 @@ public class UsuarioService {
 		Optional<Usuario> optional = getUsuarioByLogin(login);
 		Usuario bd = optional.get();
 		
-		return bd.getSenha().toString().equals(senha);
+		System.out.println("BANCO: " + PassMD5.passMD5(bd.getSenha().toString()));
+		System.out.println("PASSADA: " + senha);
+		
+		return PassMD5.passMD5(bd.getSenha().toString()).equals(senha);
 	}
 
 }
