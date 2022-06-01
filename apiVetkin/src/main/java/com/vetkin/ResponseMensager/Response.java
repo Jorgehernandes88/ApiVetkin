@@ -14,6 +14,7 @@ public class Response {
 	public static final String SUCESSO_INCLUSAO_CONSULTA_EXAME= "Exame incluído com sucesso.";
 	public static final String SUCESSO_INCLUSAO_ITENS_PRODUTOS= "Produto incluído com sucesso.";
 	public static final String SUCESSO_INCLUSAO_ITENS_SERVICOS= "Serviço incluído com sucesso.";
+	public static final String SUCESSO_INCLUSAO_CONSULTA= "Consulta incluída com sucesso.";
 	
 	public static final String SUCESSO_ATUALIZADO = "Tutor Atualizado com sucesso.";
 	public static final String SUCESSO_ATUALIZADO_PACIENTE = "Paciente Atualizado com sucesso.";
@@ -26,6 +27,7 @@ public class Response {
 	public static final String SUCESSO_ATUALIZADO_CONSULTA_EXAME = "Exame Atualizado com sucesso.";
 	public static final String SUCESSO_ATUALIZADO_ITENS_PRODUTOS = "Produto Atualizado com sucesso.";
 	public static final String SUCESSO_ATUALIZADO_ITENS_SERVICOS = "Serviço Atualizado com sucesso.";
+	public static final String SUCESSO_ATUALIZADO_CONSULTA = "Consulta Atualizada com sucesso.";
 	
 	public static final String SUCESSO_EXCLUSAO = "Tutor Excluido com sucesso.";
 	public static final String SUCESSO_EXCLUSAO_PACIENTE = "Paciente Excluido com sucesso.";
@@ -38,6 +40,7 @@ public class Response {
 	public static final String SUCESSO_EXCLUSAO_CONSULTA_EXAME= "Exame Excluido com sucesso.";
 	public static final String SUCESSO_EXCLUSAO_ITENS_PRODUTOS= "Produto Excluido com sucesso.";
 	public static final String SUCESSO_EXCLUSAO_ITENS_SERVICOS= "Serviço Excluido com sucesso.";
+	public static final String SUCESSO_EXCLUSAO_CONSULTA= "Consulta Excluida com sucesso.";
 	
 	public static final String SUCESSO_AUTORIZADO= "Usuário autorizado.";	
 	public static final String ERRO_AUTORIZADO= "Usuário não autorizado.";	
@@ -56,6 +59,7 @@ public class Response {
     public static final String ERRO_CONSULTA_EXAME_NAO_ENCONTRADO = "Exame não encontrado";
     public static final String ERRO_ITENS_PRODUTOS_NAO_ENCONTRADO = "Exame não encontrado";
     public static final String ERRO_ITENS_SERVICO_NAO_ENCONTRADO = "Serviço não encontrado";
+    public static final String ERRO_CONSULTA_NAO_ENCONTRADA = "Consulta não encontrado";
     
     public static final String ERRO_INCLUIR_CAMPOS_OBRIGATORIOS = "Campos obrigatórios não preenchidos";  
     public static final String ERRO_ATUALIZAR_REGISTRO = "Não foi possivel atualizar o registro";
