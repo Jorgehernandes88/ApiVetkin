@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.vetkin.ItensProdutos.ItensProdutos;
-import com.vetkin.ItensProdutos.ItensProdutosService;
 import com.vetkin.ItensProdutos.ItensProdutosService;
 import com.vetkin.ResponseMensager.Response;
 
@@ -96,9 +94,9 @@ public class ItensProdutosController {
 		ResponseEntity<HashMap<String, String>> statusResponse;
 		
 			
-		String Consulta_Exames = service.delete(id);
+		String produtos = service.delete(id);
 		
-		if(Consulta_Exames == null)
+		if(produtos == null)
 		{
 			map.put(Response.ERRO,Response.ERRO_ITENS_PRODUTOS_NAO_ENCONTRADO);
 			statusResponse =  new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
