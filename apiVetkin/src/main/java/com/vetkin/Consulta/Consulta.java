@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.vetkin.ImgConsultas.ImgConsultas;
 import com.vetkin.ItensExames.ItensExames;
 import com.vetkin.ItensProdutos.ItensProdutos;
 import com.vetkin.ItensServico.ItensServico;
@@ -61,6 +63,10 @@ public class Consulta {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="RecID_Consulta_ItensServicos")
 	private List<ItensServico> servico = new ArrayList<>();
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="RecID_Consulta_ImgConsultas")
+	private List<ImgConsultas> imgConsultas = new ArrayList<>();
 
 	public Consulta()
 	{
@@ -70,7 +76,7 @@ public class Consulta {
 	public Consulta(Long recID_Consulta, String status, String dataInicio, String dataFim, String dataDoAgendamento,
 			String anaminese, String detalhamento, Float valorTotal, String tipoDePagamento, Paciente paciente,
 			TutorCliente tutor, Veterinario veterinario, List<ItensExames> exames, List<ItensProdutos> produtos,
-			List<ItensServico> servico) {
+			List<ItensServico> servico, List<ImgConsultas> imgConsultas) {
 		super();
 		RecID_Consulta = recID_Consulta;
 		this.status = status;
@@ -87,8 +93,8 @@ public class Consulta {
 		this.exames = exames;
 		this.produtos = produtos;
 		this.servico = servico;
+		this.imgConsultas = imgConsultas;
 	}
-
 
 	public Long getRecID_Consulta() {
 		return RecID_Consulta;
@@ -214,6 +220,14 @@ public class Consulta {
 
 	public void setServico(List<ItensServico> servico) {
 		this.servico = servico;
+	}
+
+	public List<ImgConsultas> getImgConsultas() {
+		return imgConsultas;
+	}
+
+	public void setImgConsultas(List<ImgConsultas> imgConsultas) {
+		this.imgConsultas = imgConsultas;
 	}
 
 }

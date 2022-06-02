@@ -47,6 +47,7 @@ public class ConsultaService {
 			bd.setExames(Consulta.getExames());
 			bd.setProdutos(Consulta.getProdutos());
 			bd.setServico(Consulta.getServico());
+			bd.setImgConsultas(Consulta.getImgConsultas());
 			
 			//Atualizar o registro
 			rep.save(bd);
