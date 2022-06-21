@@ -31,7 +31,7 @@ public class Paciente {
 	private String observacoes;
 	private String sexo;
 	private String agressivo;
-	private String Status;
+	private String status;
 	private String aptoAReproducao;
 	private String pedigree;
 	private String microchip;
@@ -57,7 +57,7 @@ public class Paciente {
 		this.observacoes = observacoes;
 		this.sexo = sexo;
 		this.agressivo = agressivo;
-		Status = status;
+		this.status = status;
 		this.aptoAReproducao = aptoAReproducao;
 		this.pedigree = pedigree;
 		this.microchip = microchip;
@@ -177,11 +177,11 @@ public class Paciente {
 	}
 
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 
 	public String getAvatar() {

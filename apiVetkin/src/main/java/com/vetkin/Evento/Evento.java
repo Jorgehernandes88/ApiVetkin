@@ -28,6 +28,7 @@ public class Evento {
 	
 	private String dataDoEvento;
 	private String descrição;
+	private String status;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="RecID_Evento_ItensServicos")
@@ -45,12 +46,13 @@ public class Evento {
 		
 	}
 
-	public Evento(Long recID_Evento, String dataDoEvento, String descrição, List<ItensServico> servico,
+	public Evento(Long recID_Evento, String dataDoEvento, String descrição, String status, List<ItensServico> servico,
 			Paciente paciente, TutorCliente tutor) {
 		super();
 		RecID_Evento = recID_Evento;
 		this.dataDoEvento = dataDoEvento;
 		this.descrição = descrição;
+		this.status = status;
 		this.servico = servico;
 		this.paciente = paciente;
 		this.tutor = tutor;
@@ -102,6 +104,14 @@ public class Evento {
 
 	public void setTutor(TutorCliente tutor) {
 		this.tutor = tutor;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 

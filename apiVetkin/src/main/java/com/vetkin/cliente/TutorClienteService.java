@@ -51,6 +51,7 @@ public class TutorClienteService {
 			bd.setReceberAvisos(TutorCliente.getReceberAvisos());
 			bd.setAvatar(TutorCliente.getAvatar());
 			bd.setEndereco(TutorCliente.getEndereco());
+			bd.setPaciente(TutorCliente.getPaciente());
 						
 			//Atualizar o registro
 			rep.save(bd);
