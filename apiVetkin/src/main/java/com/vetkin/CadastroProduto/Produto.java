@@ -13,13 +13,13 @@ import javax.persistence.Table;
 import com.vetkin.Fornecedor.Fornecedor;
 
 @Entity
-@Table(name = "CadastroProduto")
-public class CadastroProduto {
+@Table(name = "Produto")
+public class Produto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "RecID_CadastroProduto")
-	private Long RecID_CadastroProduto;
+	@Column(name = "recID_Produto")
+	private Long recID_Produto;
 	
 	private String nome;
 	private String marca;
@@ -34,22 +34,22 @@ public class CadastroProduto {
 	private String status;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="RecID_Fornecedor")
+	@JoinColumn(name="recID_Fornecedor")
 	private Fornecedor fornecedor;
 	
-	public CadastroProduto () {
+	public Produto () {
 		
 	}
 
-	public Long getRecID_CadastroProduto() {
-		return RecID_CadastroProduto;
+	public Long getRecID_Produto() {
+		return recID_Produto;
 	}
 
-	public CadastroProduto(Long recID_CadastroProduto, String nome, String marca, String validade, int quantidadeMinima,
+	public Produto(Long recID_Produto, String nome, String marca, String validade, int quantidadeMinima,
 			int quantidadeAtual, Float valorCusto, Float valorVenda, Float margemLucro, Float comissao,
 			String comissaoSobreLucro, String status, Fornecedor fornecedor) {
 		super();
-		RecID_CadastroProduto = recID_CadastroProduto;
+		this.recID_Produto = recID_Produto;
 		this.nome = nome;
 		this.marca = marca;
 		this.validade = validade;
@@ -64,8 +64,8 @@ public class CadastroProduto {
 		this.fornecedor = fornecedor;
 	}
 
-	public void setRecID_CadastroProduto(Long recID_CadastroProduto) {
-		RecID_CadastroProduto = recID_CadastroProduto;
+	public void setRecID_Produto(Long recID_Produto) {
+		this.recID_Produto = recID_Produto;
 	}
 
 

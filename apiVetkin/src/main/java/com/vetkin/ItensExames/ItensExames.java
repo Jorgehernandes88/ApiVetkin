@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import com.vetkin.CadastroExame.CadastroExame;
+import com.vetkin.CadastroExame.Exame;
 
 
 @Entity
@@ -21,15 +21,15 @@ public class ItensExames {
 	private Long RecID_ItensExames;
 	
 	@ManyToOne
-	@JoinColumn(name="RecID_CadastroExame", nullable=false)
-	private CadastroExame exames;
+	@JoinColumn(name="recID_Exame", nullable=false)
+	private Exame exames;
 
 	public ItensExames()
 	{
 		
 	}
 
-	public ItensExames(Long recID_ItensExames, CadastroExame exames) {
+	public ItensExames(Long recID_ItensExames, Exame exames) {
 		super();
 		RecID_ItensExames = recID_ItensExames;
 		this.exames = exames;
@@ -48,11 +48,11 @@ public class ItensExames {
 
 
 
-	public CadastroExame getExames() {
+	public Exame getExames() {
 		return exames;
 	}
 
-	public void setExames(CadastroExame exames) {
+	public void setExames(Exame exames) {
 		this.exames = exames;
 	}
 

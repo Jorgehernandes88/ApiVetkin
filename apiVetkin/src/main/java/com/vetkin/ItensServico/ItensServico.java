@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import com.vetkin.CadastroServico.CadastroServico;
+import com.vetkin.CadastroServico.Servico;
 
 
 @Entity
@@ -21,15 +21,15 @@ public class ItensServico {
 	private Long RecID_ItensServicos;
 	
 	@ManyToOne
-	@JoinColumn(name="RecID_CadastroServico", nullable=false)
-	private CadastroServico servicos;
+	@JoinColumn(name="recID_Servico", nullable=false)
+	private Servico servicos;
 
 	public ItensServico()
 	{
 		
 	}
 
-	public ItensServico(Long recID_ItensServicos, CadastroServico servicos) {
+	public ItensServico(Long recID_ItensServicos, Servico servicos) {
 		super();
 		RecID_ItensServicos = recID_ItensServicos;
 		this.servicos = servicos;
@@ -43,11 +43,11 @@ public class ItensServico {
 		RecID_ItensServicos = recID_ItensServicos;
 	}
 
-	public CadastroServico getServicos() {
+	public Servico getServicos() {
 		return servicos;
 	}
 
-	public void setServicos(CadastroServico servicos) {
+	public void setServicos(Servico servicos) {
 		this.servicos = servicos;
 	}
 

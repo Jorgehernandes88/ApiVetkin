@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import com.vetkin.CadastroProduto.CadastroProduto;
+import com.vetkin.CadastroProduto.Produto;
 
 
 @Entity
@@ -22,14 +22,14 @@ public class ItensProdutos {
 	
 	@ManyToOne
 	@JoinColumn(name="RecID_CadastroProduto", nullable=false)
-	private CadastroProduto produto;
+	private Produto produto;
 
 	public ItensProdutos()
 	{
 		
 	}
 
-	public ItensProdutos(Long recID_ItensProdutos, CadastroProduto produto) {
+	public ItensProdutos(Long recID_ItensProdutos, Produto produto) {
 		super();
 		RecID_ItensProdutos = recID_ItensProdutos;
 		this.produto = produto;
@@ -48,11 +48,11 @@ public class ItensProdutos {
 
 
 
-	public CadastroProduto getproduto() {
+	public Produto getproduto() {
 		return produto;
 	}
 
-	public void setproduto(CadastroProduto produto) {
+	public void setproduto(Produto produto) {
 		this.produto = produto;
 	}
 

@@ -1,4 +1,4 @@
-package com.vetkin.CadastroServico;
+package com.vetkin.CadastroExame;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,13 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CadastroServico")
-public class CadastroServico {
+@Table(name = "Exame")
+public class Exame {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "RecID_CadastroServico")
-	private Long RecID_CadastroServico;
+	@Column(name = "recID_Exame")
+	private Long recID_Exame;
 	
 	private String nome;
 	private Float valorCusto;
@@ -22,26 +22,26 @@ public class CadastroServico {
 	private String status;
 
 	
-	public CadastroServico () {
+	public Exame () {
 		
 	}
 
-	public CadastroServico(Long recID_CadastroServico, String nome, Float valorCusto, Float valorVenda,
+	public Exame(Long recID_Exame, String nome, Float valorCusto, Float valorVenda,
 			String status) {
 		super();
-		RecID_CadastroServico = recID_CadastroServico;
+		this.recID_Exame = recID_Exame;
 		this.nome = nome;
 		this.valorCusto = valorCusto;
 		this.valorVenda = valorVenda;
 		this.status = status;
 	}
 
-	public Long getRecID_CadastroExame() {
-		return RecID_CadastroServico;
+	public Long getRecID_Exame() {
+		return recID_Exame;
 	}
 
-	public void setRecID_CadastroExame(Long recID_CadastroServico) {
-		RecID_CadastroServico = recID_CadastroServico;
+	public void setRecID_Exame(Long recID_CadastroExame) {
+		recID_Exame = recID_CadastroExame;
 	}
 
 	public String getNome() {

@@ -6,31 +6,31 @@ import org.springframework.util.Assert;
 import java.util.Optional;
 
 @Service
-public class CadastroProdutoService {
+public class ProdutoService {
 	
 	@Autowired
-	private CadastroProdutoRepository rep;
+	private ProdutoRepository rep;
 		
-	public Iterable<CadastroProduto> getCadastroProduto(){
+	public Iterable<Produto> getCadastroProduto(){
 		return rep.findAll();
 	}
 	
-	public Optional<CadastroProduto> getCadastroProdutoPorId(Long id){
+	public Optional<Produto> getCadastroProdutoPorId(Long id){
 		return rep.findById(id);
 	}
 	
-	public CadastroProduto save(CadastroProduto CadastroProduto) {
+	public Produto save(Produto CadastroProduto) {
 		return rep.save(CadastroProduto);
 	}
 	
-	public CadastroProduto update(CadastroProduto CadastroProduto, Long id) {
+	public Produto update(Produto CadastroProduto, Long id) {
 		
 		Assert.notNull(id,"Não foi possivel atualizar o registro");
 		
-		Optional<CadastroProduto> optional = getCadastroProdutoPorId(id);
+		Optional<Produto> optional = getCadastroProdutoPorId(id);
 		if(optional.isPresent())
 		{
-			CadastroProduto bd = optional.get();
+			Produto bd = optional.get();
 			bd.setNome(CadastroProduto.getNome());
 			bd.setMarca(CadastroProduto.getMarca());
 			bd.setValidade(CadastroProduto.getValidade());
@@ -55,7 +55,7 @@ public class CadastroProdutoService {
 	
 	public String delete(Long id)
 	{
-		Optional<CadastroProduto> CadastroExame = getCadastroProdutoPorId(id);
+		Optional<Produto> CadastroExame = getCadastroProdutoPorId(id);
 		if(CadastroExame.isPresent())
 		{
 			rep.deleteById(id);

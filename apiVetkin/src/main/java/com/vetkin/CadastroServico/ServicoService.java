@@ -6,31 +6,31 @@ import org.springframework.util.Assert;
 import java.util.Optional;
 
 @Service
-public class CadastroServicoService {
+public class ServicoService {
 	
 	@Autowired
-	private CadastroServicoRepository rep;
+	private ServicoRepository rep;
 		
-	public Iterable<CadastroServico> getCadastroServico(){
+	public Iterable<Servico> getCadastroServico(){
 		return rep.findAll();
 	}
 	
-	public Optional<CadastroServico> getCadastroServicoPorId(Long id){
+	public Optional<Servico> getCadastroServicoPorId(Long id){
 		return rep.findById(id);
 	}
 	
-	public CadastroServico save(CadastroServico CadastroServico) {
+	public Servico save(Servico CadastroServico) {
 		return rep.save(CadastroServico);
 	}
 	
-	public CadastroServico update(CadastroServico CadastroServico, Long id) {
+	public Servico update(Servico CadastroServico, Long id) {
 		
 		Assert.notNull(id,"Não foi possivel atualizar o registro");
 		
-		Optional<CadastroServico> optional = getCadastroServicoPorId(id);
+		Optional<Servico> optional = getCadastroServicoPorId(id);
 		if(optional.isPresent())
 		{
-			CadastroServico bd = optional.get();
+			Servico bd = optional.get();
 			bd.setNome(CadastroServico.getNome());
 			bd.setStatus(CadastroServico.getStatus());
 			bd.setValorCusto(CadastroServico.getValorCusto());
@@ -47,7 +47,7 @@ public class CadastroServicoService {
 	
 	public String delete(Long id)
 	{
-		Optional<CadastroServico> CadastroServico = getCadastroServicoPorId(id);
+		Optional<Servico> CadastroServico = getCadastroServicoPorId(id);
 		if(CadastroServico.isPresent())
 		{
 			rep.deleteById(id);

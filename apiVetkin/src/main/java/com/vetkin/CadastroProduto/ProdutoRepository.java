@@ -2,6 +2,6 @@ package com.vetkin.CadastroProduto;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface CadastroProdutoRepository extends CrudRepository<CadastroProduto, Long> {
+public interface ProdutoRepository extends CrudRepository<Produto, Long> {
 
 }

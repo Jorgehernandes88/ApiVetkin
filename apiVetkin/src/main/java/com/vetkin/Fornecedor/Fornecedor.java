@@ -14,8 +14,8 @@ public class Fornecedor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "RecID_Fornecedor")
-	private Long RecID_Fornecedor;
+	@Column(name = "recID_Fornecedor")
+	private Long recID_Fornecedor;
 	
 	private String empresa;
 	private String nome;
@@ -32,7 +32,7 @@ public class Fornecedor {
 	public Fornecedor(Long recID_Fornecedor, String empresa, String nome, String cnpj, String inscricaoEstadual,
 			String contato, String score) {
 		super();
-		RecID_Fornecedor = recID_Fornecedor;
+		this.recID_Fornecedor = recID_Fornecedor;
 		this.empresa = empresa;
 		this.nome = nome;
 		this.cnpj = cnpj;
@@ -42,11 +42,11 @@ public class Fornecedor {
 	}
 
 	public Long getRecID_Fornecedor() {
-		return RecID_Fornecedor;
+		return recID_Fornecedor;
 	}
 
 	public void setRecID_Fornecedor(Long recID_Fornecedor) {
-		RecID_Fornecedor = recID_Fornecedor;
+		this.recID_Fornecedor = recID_Fornecedor;
 	}
 
 	public String getEmpresa() {

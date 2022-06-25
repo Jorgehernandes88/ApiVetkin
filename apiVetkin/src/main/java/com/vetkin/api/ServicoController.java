@@ -16,29 +16,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vetkin.CadastroServico.CadastroServico;
-import com.vetkin.CadastroServico.CadastroServicoService;
+import com.vetkin.CadastroServico.Servico;
+import com.vetkin.CadastroServico.ServicoService;
 import com.vetkin.ResponseMensager.Response;
 
 
 @RestController
-@RequestMapping("/api/v1/CadastroServicos")
-public class CadastroServicoController {
+@RequestMapping("/api/v1/Servicos")
+public class ServicoController {
 	
 	@Autowired
-	private CadastroServicoService service;
+	private ServicoService service;
 	
 	@CrossOrigin
 	@GetMapping()
-	public ResponseEntity<Iterable<CadastroServico>> get() {
+	public ResponseEntity<Iterable<Servico>> get() {
 		return new ResponseEntity<>(service.getCadastroServico(),HttpStatus.OK);
 	}
 	
 	@CrossOrigin
 	@GetMapping("/{id}")
-	public ResponseEntity<CadastroServico> get( @PathVariable("id") Long id) {
+	public ResponseEntity<Servico> get( @PathVariable("id") Long id) {
 		
-		Optional<CadastroServico> servico = service.getCadastroServicoPorId(id);
+		Optional<Servico> servico = service.getCadastroServicoPorId(id);
 		
 		if(servico.isPresent())
 		{
@@ -50,7 +50,7 @@ public class CadastroServicoController {
 
 	@CrossOrigin
 	@PostMapping
-	public ResponseEntity<HashMap<String, String>> post(@RequestBody CadastroServico CadastroServico) {
+	public ResponseEntity<HashMap<String, String>> post(@RequestBody Servico CadastroServico) {
 		
 		HashMap<String, String> map = new HashMap<>();
 		ResponseEntity<HashMap<String, String>> statusResponse;
@@ -62,9 +62,9 @@ public class CadastroServicoController {
 			
 		}else
 		{
-			CadastroServico cadastroServico = service.save(CadastroServico);
+			Servico cadastroServico = service.save(CadastroServico);
 
-				map.put("idCadastroServico",cadastroServico.getRecID_CadastroExame().toString());
+				map.put("idCadastroServico",cadastroServico.getRecID_Servico().toString());
 				map.put(Response.STATUS,Response.SUCESSO_INCLUSAO_SERVICO);
 				statusResponse =  new ResponseEntity<>(map,HttpStatus.OK);
 		}
@@ -72,23 +72,23 @@ public class CadastroServicoController {
 		return statusResponse;
 	}
 	
-    private boolean servicoInvalido(CadastroServico CadastroServico) {
+    private boolean servicoInvalido(Servico CadastroServico) {
         return CadastroServico.getNome() == "" | CadastroServico.getValorVenda().toString() == "" | CadastroServico.getValorCusto().toString() == ""
         		| CadastroServico.getNome() == null | CadastroServico.getValorVenda() == null | CadastroServico.getValorCusto() == null;
     }
 
 	@CrossOrigin
 	@PutMapping("/{id}")
-	public ResponseEntity<HashMap<String, String>> put(@PathVariable("id") Long id, @RequestBody CadastroServico CadastroServico) {
+	public ResponseEntity<HashMap<String, String>> put(@PathVariable("id") Long id, @RequestBody Servico CadastroServico) {
 	
 		HashMap<String, String> map = new HashMap<>();
 		ResponseEntity<HashMap<String, String>> statusResponse;
 		
 		try {
 			
-		    CadastroServico exame = service.update(CadastroServico, id);
+		    Servico exame = service.update(CadastroServico, id);
 			
-			map.put("idCadastroServico", exame.getRecID_CadastroExame().toString());
+			map.put("idCadastroServico", exame.getRecID_Servico().toString());
 			map.put(Response.STATUS,Response.SUCESSO_ATUALIZADO_SERVICO);
 			statusResponse =  new ResponseEntity<>(map,HttpStatus.OK);
 			
